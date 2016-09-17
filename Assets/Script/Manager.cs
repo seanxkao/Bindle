@@ -23,12 +23,6 @@ public class Manager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         playerConfigs = new PlayerConfig[4];
-        GameObject startButton = GameObject.Find("Start Button");
-        startButton.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            gameStart();
-        });
-
 
         string path = Application.persistentDataPath + "/playerConfig.dat";
         Debug.Log(path);
