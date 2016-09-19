@@ -15,6 +15,8 @@ public class Manager : MonoBehaviour
 
     public Material[] materials;
 
+    public string[] joyNames;
+
     GameObject plane;
     GameObject[] players;
 
@@ -23,6 +25,7 @@ public class Manager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         playerConfigs = new PlayerConfig[4];
+        joyNames = Input.GetJoystickNames();
 
         string path = Application.persistentDataPath + "/playerConfig.dat";
         Debug.Log(path);
@@ -76,9 +79,15 @@ public class Manager : MonoBehaviour
 	void Update () {
         if (SceneManager.GetActiveScene().name == "Bindle")
         {
-            if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button7))
+            string[] joyNames = Input.GetJoystickNames();
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene("Bindle");
+            }
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button8) && joyNames[0] == "Logitech RumblePad 2 USB")
+            {
+                SceneManager.LoadScene("Bindle");
+                
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {

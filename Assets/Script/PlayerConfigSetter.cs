@@ -212,54 +212,45 @@ public class PlayerConfigSetter : MonoBehaviour {
         while (true)
         {
             KeyCode key = readKey();
-            config.joystick = "Joystick1";
-            yield break;
-            /*
-            Debug.Log(key.ToString());
-            if (key == KeyCode.JoystickButton7 || key == KeyCode.Joystick1Button9)
-            {
-                config.joystick = "Joystick1";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
+            for (KeyCode keyCode = KeyCode.Joystick1Button0; keyCode < KeyCode.Joystick1Button19; keyCode++) {
+                if (Input.GetKeyDown(keyCode)) {
+                    setJoystickText("Joystick1");
+                    config.joystick = "Joystick1";
+                    isReadingKey = false;
+                    yield break;
+                }
             }
-            else if (key == KeyCode.Joystick2Button7 || key == KeyCode.Joystick2Button9)
+            for (KeyCode keyCode = KeyCode.Joystick2Button0; keyCode < KeyCode.Joystick2Button19; keyCode++)
             {
-                config.joystick = "Joystick2";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
+                if (Input.GetKeyDown(keyCode))
+                {
+                    setJoystickText("Joystick2");
+                    config.joystick = "Joystick2";
+                    isReadingKey = false;
+                    yield break;
+                }
             }
-            else if (key == KeyCode.Joystick3Button7 || key == KeyCode.Joystick3Button9)
+            for (KeyCode keyCode = KeyCode.Joystick3Button0; keyCode < KeyCode.Joystick3Button19; keyCode++)
             {
-                config.joystick = "Joystick3";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
+                if (Input.GetKeyDown(keyCode))
+                {
+                    setJoystickText("Joystick3");
+                    config.joystick = "Joystick3";
+                    isReadingKey = false;
+                    yield break;
+                }
             }
-            else if (key == KeyCode.Joystick4Button7 || key == KeyCode.Joystick4Button9)
+            for (KeyCode keyCode = KeyCode.Joystick4Button0; keyCode < KeyCode.Joystick4Button19; keyCode++)
             {
-                config.joystick = "Joystick4";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
-            }
-            else if (key == KeyCode.Joystick5Button7 || key == KeyCode.Joystick5Button9)
-            {
-                config.joystick = "Joystick5";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
-            }
-            else if (key == KeyCode.Joystick6Button7 || key == KeyCode.Joystick6Button9)
-            {
-                config.joystick = "Joystick6";
-                setJoystickText(config.joystick);
-                isReadingKey = false;
-                yield break;
+                if (Input.GetKeyDown(keyCode))
+                {
+                    setJoystickText("Joystick4");
+                    config.joystick = "Joystick4";
+                    isReadingKey = false;
+                    yield break;
+                }
             }
             yield return null;
-             * */
         }
     }
 

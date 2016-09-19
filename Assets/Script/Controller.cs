@@ -86,8 +86,8 @@ public class Controller : MonoBehaviour
         }
         else
         {
-            axis.x = Input.GetAxis("Joystick1X");
-            axis.y = Input.GetAxis("Joystick1Y");
+            axis.x = Input.GetAxis(playerConfig.joystick + "X");
+            axis.y = Input.GetAxis(playerConfig.joystick + "Y");
         }
         if (axis != Vector2.zero) axis.Normalize();
     }
