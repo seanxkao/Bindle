@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerConfigSetter : MonoBehaviour {
+    public string[] joyNames;
     public PlayerConfig config;
 
     public Toggle enableToggle;
@@ -23,6 +24,7 @@ public class PlayerConfigSetter : MonoBehaviour {
     bool isReadingKey;
 
     void Awake() {
+        joyNames = Input.GetJoystickNames();
         isReadingKey = false;
         enableToggle.onValueChanged.AddListener(setEnable);
         nameInput.onEndEdit.AddListener(setName);

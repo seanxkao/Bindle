@@ -26,9 +26,7 @@ public class Manager : MonoBehaviour
         DontDestroyOnLoad(this);
         playerConfigs = new PlayerConfig[4];
         joyNames = Input.GetJoystickNames();
-
         string path = Application.persistentDataPath + "/playerConfig.dat";
-        Debug.Log(path);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -96,9 +94,7 @@ public class Manager : MonoBehaviour
             }
         }
     }
-
-    public void gameStart()
-    {
+    public void save() {
         int size = playerConfigSetters.Length;
         playerConfigs = new PlayerConfig[size];
         for (int i = 0; i < size; i++)
@@ -109,6 +105,9 @@ public class Manager : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath + "/playerConfig.dat");
         formatter.Serialize(file, playerConfigs);
         file.Close();
+    }
+    public void gameStart()
+    {
         SceneManager.LoadScene("Bindle");
     }
 
